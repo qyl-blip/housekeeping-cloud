@@ -1,95 +1,89 @@
-# Document of this project
+# Housekeeping API 服务模块
 
-### 功能
+家政服务管理系统的核心 API 服务模块，提供 RESTful 接口。
 
-* 增删改查
-* 文件上传
-* 数据库配置
-* 日志管理
-* 权限控制
+## 功能模块
 
-### 后端部署流程
+- 用户管理与权限控制
+- 家政服务 CRUD
+- 文件上传管理
+- 订单与预约管理
+- 评论与收藏
+- 日志记录
+- 数据统计
 
-1. 配置端口 位于application.yml
-2. 配置DB_NAME 位于application.yml
-3. 配置BASE_LOCATION 位于application.yml
-4. 修改logback-spring.xml下的LOG_HOME的value值
-5. maven clean -> maven package
-6. 将jar包复制到服务器
-7. 将upload文件夹复制到服务器
-8. 迁移mysql数据库
-9. 运行启动jar包命令
+## 技术栈
 
-### 运行jar命令（或双击start.sh）
+- Spring Boot 2.5.5
+- MyBatis-Plus 3.5.2
+- MySQL 8.0
+- Druid 连接池
+- Nacos 服务注册
+- Redis 缓存
 
-title xxxx
-java -jar -Xms64m -Xmx128m -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=64m xxxxx.jar
+## 配置说明
 
+### application.yml 配置项
 
-### 数据库相关
+```yaml
+server:
+  port: 8009                    # 服务端口
 
-删除数据库命令：
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/DB_NAME  # 数据库名称
+  servlet:
+    multipart:
+      max-file-size: 10MB       # 文件上传大小限制
 
-drop database if exists xxx;
+file:
+  upload:
+    path: BASE_LOCATION         # 文件上传路径
+```
 
-创建数据库命令：
+### 日志配置
 
-CREATE DATABASE IF NOT EXISTS xxx DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+修改 `logback-spring.xml` 中的 `LOG_HOME` 值设置日志存储路径。
 
-数据库备份命令:
+## 部署流程
 
-mysqldump -u root -p --databases 数据库名称 > xxx.sql
+1. 配置 `application.yml` 中的端口、数据库、文件路径
+2. 修改 `logback-spring.xml` 日志路径
+3. 打包：`mvn clean package`
+4. 上传 jar 包和 `upload` 文件夹到服务器
+5. 导入数据库
+6. 启动服务：
+```bash
+java -jar -Xms64m -Xmx128m -XX:MetaspaceSize=64m -XX:MaxMetaspaceSize=64m study-0.0.1-SNAPSHOT.jar
+```
 
-数据库恢复命令：
+## 数据库操作
 
-source D:\\xxx.sql
+### 创建数据库
+```sql
+CREATE DATABASE IF NOT EXISTS housekeeping DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_general_ci;
+```
 
+### 备份数据库
+```bash
+mysqldump -u root -p --databases housekeeping > backup.sql
+```
 
-### 常见问题
+### 恢复数据库
+```sql
+source /path/to/backup.sql
+```
 
-#### 日志路径
+## 监控
 
-修改logback-spring.xml下的LOG_HOME的value值
+Druid 监控面板：http://localhost:8009/druid/index.html
 
-#### 配置数据库
+## 开发注意事项
 
-application.yml中
-
-#### Druid连接池配置
-
-* application.yml中配置druid
-* 参考链接：https://blog.csdn.net/nothingavenger/article/details/114119585
-* 监控地址：http://localhost:8009/druid/index.html
-
-#### mysql主键id过长
-
-https://blog.csdn.net/qq_46728644/article/details/120772577
-
-#### yml不起作用
-
-需要maven clean一下
-
-#### 注意实体字段最好是String类型
-
-实体字段最好是String类型，mybatis-plus的update的时候，null的不更新
-
-#### 打包步骤
-
-maven clean -> maven package
-
-https://blog.csdn.net/weixin_42822484/article/details/107893586
-
-#### 配置文件上传大小
-
-application.yml中multipart下
-
-#### 静态资源路径配置
-
-https://blog.csdn.net/cylcjsg/article/details/128102776?
-
-#### 跨域配置
-
-见CorsConfig.java
+- 实体字段建议使用 String 类型，MyBatis-Plus 更新时 null 值不会被更新
+- 修改 yml 配置后需执行 `mvn clean` 使配置生效
+- 跨域配置见 `CorsConfig.java`
+- 静态资源路径配置见 `WebMvcConfig.java`
 
 
 
