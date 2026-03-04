@@ -1,0 +1,8 @@
+2026-02-20 22:42:42.123 [ Thread-21 ] - [ WARN  ] [ com.alibaba.nacos.common.http.HttpClientBeanHolder : 108 ] - [HttpClientBeanHolder] Start destroying common HttpClient
+2026-02-20 22:42:42.123 [ Thread-27 ] - [ WARN  ] [ com.alibaba.nacos.common.notify.NotifyCenter : 145 ] - [NotifyCenter] Start destroying Publisher
+2026-02-20 22:42:42.166 [ Thread-27 ] - [ WARN  ] [ com.alibaba.nacos.common.notify.NotifyCenter : 162 ] - [NotifyCenter] Destruction of the end
+2026-02-20 22:42:42.182 [ Thread-21 ] - [ WARN  ] [ com.alibaba.nacos.common.http.HttpClientBeanHolder : 114 ] - [HttpClientBeanHolder] Destruction of the end
+2026-02-20 22:42:43.006 [ SpringApplicationShutdownHook ] - [ INFO  ] [ c.a.cloud.nacos.registry.NacosServiceRegistry : 90 ] - De-registering from Nacos Server now...
+2026-02-20 22:42:43.018 [ SpringApplicationShutdownHook ] - [ INFO  ] [ c.a.cloud.nacos.registry.NacosServiceRegistry : 110 ] - De-registration finished.
+2026-02-20 22:42:47.303 [ SpringApplicationShutdownHook ] - [ INFO  ] [ com.alibaba.druid.pool.DruidDataSource : 2063 ] - {dataSource-1} closing ...
+2026-02-20 22:42:47.307 [ SpringApplicationShutdownHook ] - [ INFO  ] [ com.alibaba.druid.pool.DruidDataSource : 2136 ] - {dataSource-1} closed

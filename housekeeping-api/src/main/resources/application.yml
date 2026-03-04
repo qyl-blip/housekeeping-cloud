@@ -1,0 +1,71 @@
+server:
+  port: 9100
+  servlet:
+    context-path: /api
+
+# 自定义变量
+BASE_LOCATION: D:/aliyun_workspace/java_jiazheng
+DB_NAME: java_jiazheng
+
+# ==========================================
+# 【重要】下面这 2 行是你之前漏掉的，必须加上！
+File:
+  uploadPath: ${BASE_LOCATION}/server/upload/
+# ==========================================
+
+spring:
+  application:
+    name: housekeeping-api  # 服务名称
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 # Nacos地址
+  datasource:
+    username: root
+    password: 1314
+    # 注意：这里你写的是 3307，如果启动报错连不上数据库，请改回 3306
+    url: jdbc:mysql://localhost:3306/${DB_NAME}?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    druid:
+      # 连接池配置
+      initial-size: 5
+      min-idle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,slf4j
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      web-stat-filter:
+        enabled: true
+        url-pattern: "/*"
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        allow: 127.0.0.1
+        reset-enable: false
+        login-username: admin
+        login-password: 123
+        url-pattern: "/druid/*"
+        enabled: true
+
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 1MB
+      # 确保这个路径下的文件夹存在
+      location: ${BASE_LOCATION}/server/upload/tmp
+      enabled: true
+
+# 打印 SQL 日志
+logging:
+  level:
+    com.gk.study.mapper: debug

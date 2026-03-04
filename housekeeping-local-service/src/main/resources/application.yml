@@ -1,0 +1,30 @@
+server:
+  port: 9200 # 新服务的端口
+
+spring:
+  application:
+    name: housekeeping-local-service # 服务名（会显示在 Nacos 上）
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 # Nacos 地址
+
+  # 数据库配置 (毕设初期先连同一个库，方便拿数据)
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 注意：如果你的 MySQL 是 3306 就写 3306
+    url: jdbc:mysql://localhost:3306/java_jiazheng?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 1314 # 你的数据库密码
+
+  # Redis 配置 (默认 localhost:6379，没装 Redis 先不用管，不报错)
+  redis:
+    host: localhost
+    port: 6379
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 打印 SQL 日志

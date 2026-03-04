@@ -1,0 +1,307 @@
+2026-03-04 09:11:33.946 [ main ] - [ INFO  ] [ com.gk.study.MySpringApplication : 55 ] - Starting MySpringApplication using Java 1.8.0_361 on qiyanlei with PID 22884 (D:\aliyun_workspace\housekeeping-cloud\housekeeping-api\target\classes started by qiyan in D:\aliyun_workspace\housekeeping-cloud)
+2026-03-04 09:11:33.951 [ main ] - [ INFO  ] [ com.gk.study.MySpringApplication : 659 ] - No active profile set, falling back to default profiles: default
+2026-03-04 09:11:35.082 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Initializing ProtocolHandler ["http-nio-9100"]
+2026-03-04 09:11:35.083 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardService : 173 ] - Starting service [Tomcat]
+2026-03-04 09:11:35.084 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardEngine : 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.53]
+2026-03-04 09:11:35.174 [ main ] - [ INFO  ] [ o.a.c.c.ContainerBase.[Tomcat].[localhost].[/api] : 173 ] - Initializing Spring embedded WebApplicationContext
+2026-03-04 09:11:38.762 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Starting ProtocolHandler ["http-nio-9100"]
+2026-03-04 09:11:38.790 [ main ] - [ INFO  ] [ c.a.cloud.nacos.registry.NacosServiceRegistry : 75 ] - nacos registry, DEFAULT_GROUP housekeeping-api 192.168.110.238:9100 register finished
+2026-03-04 09:11:39.360 [ main ] - [ INFO  ] [ com.gk.study.MySpringApplication : 61 ] - Started MySpringApplication in 6.734 seconds (JVM running for 7.832)
+2026-03-04 09:11:48.665 [ http-nio-9100-exec-3 ] - [ INFO  ] [ o.a.c.c.ContainerBase.[Tomcat].[localhost].[/api] : 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-04 09:11:48.912 [ http-nio-9100-exec-1 ] - [ INFO  ] [ com.alibaba.druid.pool.DruidDataSource : 975 ] - {dataSource-1} inited
+2026-03-04 09:11:49.900 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,cover,description,price,status,create_time,score,mobile,age,sex,location,pv,recommend_count,wish_count,collect_count,classification_id,user_id FROM b_thing ORDER BY create_time DESC
+2026-03-04 09:11:49.904 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_classification
+2026-03-04 09:11:49.916 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_tag
+2026-03-04 09:11:49.936 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:49.936 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:49.936 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:50.018 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:50.018 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:50.022 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingMapper.selectList : 137 ] - <==      Total: 10
+2026-03-04 09:11:50.036 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:50.038 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 116(Long)
+2026-03-04 09:11:50.053 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:50.056 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:50.056 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 103(Long)
+2026-03-04 09:11:50.059 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:50.061 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:50.062 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 104(Long)
+2026-03-04 09:11:50.064 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:50.067 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:50.068 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 105(Long)
+2026-03-04 09:11:50.072 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:50.074 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:50.075 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 106(Long)
+2026-03-04 09:11:50.078 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:50.081 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:50.082 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 98(Long)
+2026-03-04 09:11:50.085 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:50.088 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:50.089 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 97(Long)
+2026-03-04 09:11:50.088 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:50.088 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:50.090 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:50.078(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/classification/list(String), GET(String), 1385(String)
+2026-03-04 09:11:50.090 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:50.078(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/tag/list(String), GET(String), 1385(String)
+2026-03-04 09:11:50.091 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:50.093 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:50.095 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 95(Long)
+2026-03-04 09:11:50.097 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 0
+2026-03-04 09:11:50.099 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:50.100 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 94(Long)
+2026-03-04 09:11:50.102 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:50.105 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:50.106 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 93(Long)
+2026-03-04 09:11:50.107 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:50.109 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:50.109 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:50.121 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:50.123 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:50.120(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/thing/list(String), GET(String), 1428(String)
+2026-03-04 09:11:50.127 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:51.174 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_classification
+2026-03-04 09:11:51.175 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:51.178 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:51.184 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:51.186 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:51.183(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/classification/list(String), GET(String), 11(String)
+2026-03-04 09:11:51.191 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:51.953 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_tag
+2026-03-04 09:11:51.954 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:51.957 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:51.962 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:51.964 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:51.961(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/tag/list(String), GET(String), 9(String)
+2026-03-04 09:11:51.969 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:53.028 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.CommentMapper.getList : 137 ] - ==>  Preparing: select A.*, B.username, C.title from b_comment as A join b_user as B on (A.user_id=B.id) join b_thing as C on (A.thing_id=C.id) order by A.comment_time desc;
+2026-03-04 09:11:53.031 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.CommentMapper.getList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:53.052 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.CommentMapper.getList : 137 ] - <==      Total: 1
+2026-03-04 09:11:53.058 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:53.058 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:53.057(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/comment/list(String), GET(String), 39(String)
+2026-03-04 09:11:53.061 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:53.665 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==>  Preparing: SELECT id,username,password,nickname,mobile,email,description,role,status,score,avatar,token,create_time,push_email,push_switch FROM b_user WHERE (token = ?)
+2026-03-04 09:11:53.666 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==> Parameters: 9116392dc24b7b84483ba00b0d72b80c(String)
+2026-03-04 09:11:53.669 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:53.678 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ c.g.s.mapper.AppointmentMapper.getAllAppointments : 137 ] - ==>  Preparing: SELECT a.*, u.username, t.title as thingTitle, t.cover, CONCAT(ts.start_time, '-', ts.end_time) as slotTime FROM b_appointment a LEFT JOIN b_user u ON a.user_id = u.id LEFT JOIN b_thing t ON a.thing_id = t.id LEFT JOIN b_time_slot ts ON a.slot_id = ts.id ORDER BY a.create_time DESC
+2026-03-04 09:11:53.680 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ c.g.s.mapper.AppointmentMapper.getAllAppointments : 137 ] - ==> Parameters: 
+2026-03-04 09:11:53.706 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ c.g.s.mapper.AppointmentMapper.getAllAppointments : 137 ] - <==      Total: 20
+2026-03-04 09:11:53.707 [ http-nio-9100-exec-7 ] - [ INFO  ] [ com.gk.study.controller.AppointmentController : 52 ] - 管理员获取所有预约列表成功 - 预约数量: 20
+2026-03-04 09:11:53.712 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:53.714 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:53.711(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/appointment/admin/list(String), GET(String), 57(String)
+2026-03-04 09:11:53.718 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:54.266 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,cover,description,price,status,create_time,score,mobile,age,sex,location,pv,recommend_count,wish_count,collect_count,classification_id,user_id FROM b_thing ORDER BY create_time DESC
+2026-03-04 09:11:54.266 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_classification
+2026-03-04 09:11:54.267 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:54.267 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:54.269 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:54.273 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:54.274 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:54.272(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/classification/list(String), GET(String), 6(String)
+2026-03-04 09:11:54.278 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingMapper.selectList : 137 ] - <==      Total: 10
+2026-03-04 09:11:54.280 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:54.281 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:54.282 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 116(Long)
+2026-03-04 09:11:54.286 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:54.288 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:54.289 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 103(Long)
+2026-03-04 09:11:54.291 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:54.295 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:54.296 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 104(Long)
+2026-03-04 09:11:54.299 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:54.302 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:54.302 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 105(Long)
+2026-03-04 09:11:54.304 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:54.323 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:54.324 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 106(Long)
+2026-03-04 09:11:54.326 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:54.328 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:54.330 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 98(Long)
+2026-03-04 09:11:54.332 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:54.334 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:54.335 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 97(Long)
+2026-03-04 09:11:54.336 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:54.337 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:54.338 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 95(Long)
+2026-03-04 09:11:54.340 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 0
+2026-03-04 09:11:54.341 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:54.341 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 94(Long)
+2026-03-04 09:11:54.343 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:54.347 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:54.348 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 93(Long)
+2026-03-04 09:11:54.350 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:11:54.354 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:54.355 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:54.353(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/thing/list(String), GET(String), 88(String)
+2026-03-04 09:11:54.357 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:54.570 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_tag
+2026-03-04 09:11:54.572 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:54.575 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:54.576 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:54.577 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:54.576(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/tag/list(String), GET(String), 6(String)
+2026-03-04 09:11:54.583 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:55.103 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_classification
+2026-03-04 09:11:55.103 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:55.107 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:55.108 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:55.109 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:55.108(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/classification/list(String), GET(String), 6(String)
+2026-03-04 09:11:55.113 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:55.548 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.CommentMapper.getList : 137 ] - ==>  Preparing: select A.*, B.username, C.title from b_comment as A join b_user as B on (A.user_id=B.id) join b_thing as C on (A.thing_id=C.id) order by A.comment_time desc;
+2026-03-04 09:11:55.549 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.CommentMapper.getList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:55.553 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.CommentMapper.getList : 137 ] - <==      Total: 1
+2026-03-04 09:11:55.556 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:55.557 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:55.555(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/comment/list(String), GET(String), 7(String)
+2026-03-04 09:11:55.563 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:57.247 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==>  Preparing: SELECT id,username,password,nickname,mobile,email,description,role,status,score,avatar,token,create_time,push_email,push_switch FROM b_user ORDER BY create_time DESC
+2026-03-04 09:11:57.247 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:57.250 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:57.255 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:11:57.256 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:11:57.255(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/user/list(String), GET(String), 14(String)
+2026-03-04 09:11:57.259 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:11:59.987 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,cover,description,price,status,create_time,score,mobile,age,sex,location,pv,recommend_count,wish_count,collect_count,classification_id,user_id FROM b_thing ORDER BY create_time DESC
+2026-03-04 09:11:59.988 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:11:59.991 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingMapper.selectList : 137 ] - <==      Total: 10
+2026-03-04 09:11:59.993 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:59.994 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 116(Long)
+2026-03-04 09:11:59.996 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:11:59.998 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:11:59.999 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 103(Long)
+2026-03-04 09:12:00.001 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:12:00.003 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:12:00.005 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 104(Long)
+2026-03-04 09:12:00.008 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:12:00.010 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:12:00.012 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 105(Long)
+2026-03-04 09:12:00.014 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:12:00.018 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:12:00.020 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 106(Long)
+2026-03-04 09:12:00.025 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:12:00.030 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:12:00.031 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 98(Long)
+2026-03-04 09:12:00.034 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:12:00.037 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:12:00.038 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 97(Long)
+2026-03-04 09:12:00.041 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:12:00.044 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:12:00.046 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 95(Long)
+2026-03-04 09:12:00.049 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 0
+2026-03-04 09:12:00.052 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:12:00.053 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 94(Long)
+2026-03-04 09:12:00.055 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:12:00.056 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,thing_id,tag_id FROM b_thing_tag WHERE (thing_id = ?)
+2026-03-04 09:12:00.057 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - ==> Parameters: 93(Long)
+2026-03-04 09:12:00.059 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.ThingTagMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:12:00.062 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:12:00.064 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:12:00.061(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/thing/list(String), GET(String), 75(String)
+2026-03-04 09:12:00.069 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:12:00.308 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_tag
+2026-03-04 09:12:00.308 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_classification
+2026-03-04 09:12:00.309 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:12:00.309 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:12:00.310 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:12:00.310 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:12:00.314 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:12:00.316 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:12:00.314(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/tag/list(String), GET(String), 6(String)
+2026-03-04 09:12:00.318 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:12:00.320 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:12:00.317(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/classification/list(String), GET(String), 10(String)
+2026-03-04 09:12:00.323 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:12:00.324 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:13:37.292 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_classification
+2026-03-04 09:13:37.294 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:13:37.298 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ c.gk.study.mapper.ClassificationMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:13:37.304 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:13:37.305 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:13:37.303(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/classification/list(String), GET(String), 29(String)
+2026-03-04 09:13:37.310 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:13:37.867 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,create_time FROM b_tag
+2026-03-04 09:13:37.868 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:13:37.872 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.TagMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:13:37.877 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:13:37.878 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:13:37.876(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/tag/list(String), GET(String), 9(String)
+2026-03-04 09:13:37.883 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:13:39.002 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.CommentMapper.getList : 137 ] - ==>  Preparing: select A.*, B.username, C.title from b_comment as A join b_user as B on (A.user_id=B.id) join b_thing as C on (A.thing_id=C.id) order by A.comment_time desc;
+2026-03-04 09:13:39.002 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.CommentMapper.getList : 137 ] - ==> Parameters: 
+2026-03-04 09:13:39.004 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.CommentMapper.getList : 137 ] - <==      Total: 1
+2026-03-04 09:13:39.006 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:13:39.007 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:13:39.006(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/comment/list(String), GET(String), 5(String)
+2026-03-04 09:13:39.011 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:13:39.499 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==>  Preparing: SELECT id,username,password,nickname,mobile,email,description,role,status,score,avatar,token,create_time,push_email,push_switch FROM b_user WHERE (token = ?)
+2026-03-04 09:13:39.500 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==> Parameters: 9116392dc24b7b84483ba00b0d72b80c(String)
+2026-03-04 09:13:39.502 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:13:39.503 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ c.g.s.mapper.AppointmentMapper.getAllAppointments : 137 ] - ==>  Preparing: SELECT a.*, u.username, t.title as thingTitle, t.cover, CONCAT(ts.start_time, '-', ts.end_time) as slotTime FROM b_appointment a LEFT JOIN b_user u ON a.user_id = u.id LEFT JOIN b_thing t ON a.thing_id = t.id LEFT JOIN b_time_slot ts ON a.slot_id = ts.id ORDER BY a.create_time DESC
+2026-03-04 09:13:39.503 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ c.g.s.mapper.AppointmentMapper.getAllAppointments : 137 ] - ==> Parameters: 
+2026-03-04 09:13:39.509 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ c.g.s.mapper.AppointmentMapper.getAllAppointments : 137 ] - <==      Total: 20
+2026-03-04 09:13:39.510 [ http-nio-9100-exec-10 ] - [ INFO  ] [ com.gk.study.controller.AppointmentController : 52 ] - 管理员获取所有预约列表成功 - 预约数量: 20
+2026-03-04 09:13:39.514 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:13:39.515 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:13:39.513(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/appointment/admin/list(String), GET(String), 15(String)
+2026-03-04 09:13:39.518 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:13:40.650 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==>  Preparing: SELECT id,username,password,nickname,mobile,email,description,role,status,score,avatar,token,create_time,push_email,push_switch FROM b_user ORDER BY create_time DESC
+2026-03-04 09:13:40.651 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:13:40.652 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:13:40.654 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:13:40.655 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:13:40.654(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/user/list(String), GET(String), 6(String)
+2026-03-04 09:13:40.664 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:13:42.038 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.AdMapper.selectList : 137 ] - ==>  Preparing: SELECT id,image,link,create_time FROM b_ad
+2026-03-04 09:13:42.039 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.AdMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:13:42.051 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.AdMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:13:42.053 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:13:42.054 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:13:42.053(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/ad/list(String), GET(String), 27(String)
+2026-03-04 09:13:42.058 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:13:42.289 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:13:42.290 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:13:42.289(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/staticfiles/image/b02cf0e2-b5dd-4cc1-9677-fc7eb8b4365d.png(String), GET(String), 16(String)
+2026-03-04 09:13:42.293 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:13:42.752 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.NoticeMapper.selectList : 137 ] - ==>  Preparing: SELECT id,title,content,create_time FROM b_notice
+2026-03-04 09:13:42.753 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.NoticeMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:13:42.759 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.NoticeMapper.selectList : 137 ] - <==      Total: 3
+2026-03-04 09:13:42.764 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:13:42.764 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:13:42.763(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/notice/list(String), GET(String), 26(String)
+2026-03-04 09:13:42.770 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:13:58.461 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==>  Preparing: SELECT id,re_ip,re_time,re_ua,re_url,re_method,re_content,access_time FROM b_op_log WHERE (re_url = ?) ORDER BY re_time DESC limit 0, 1000
+2026-03-04 09:13:58.463 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==> Parameters: /api/user/userLogin(String)
+2026-03-04 09:13:58.531 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - <==      Total: 89
+2026-03-04 09:13:58.535 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:13:58.535 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:13:58.534(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/opLog/loginLogList(String), GET(String), 81(String)
+2026-03-04 09:13:58.538 [ http-nio-9100-exec-6 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:13:59.789 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==>  Preparing: SELECT id,re_ip,re_time,re_ua,re_url,re_method,re_content,access_time FROM b_op_log ORDER BY re_time DESC limit 0, 1000
+2026-03-04 09:13:59.790 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:13:59.851 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - <==      Total: 1000
+2026-03-04 09:13:59.853 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:13:59.854 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:13:59.853(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/opLog/list(String), GET(String), 65(String)
+2026-03-04 09:13:59.857 [ http-nio-9100-exec-5 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:14:02.123 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==>  Preparing: SELECT id,re_ip,re_time,re_ua,re_url,re_method,re_content,access_time FROM b_op_log WHERE (re_url = ?) ORDER BY re_time DESC limit 0, 1000
+2026-03-04 09:14:02.124 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==> Parameters: /api/user/userLogin(String)
+2026-03-04 09:14:02.148 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - <==      Total: 89
+2026-03-04 09:14:02.150 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:14:02.151 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:14:02.150(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/opLog/loginLogList(String), GET(String), 29(String)
+2026-03-04 09:14:02.155 [ http-nio-9100-exec-7 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:15:38.545 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==>  Preparing: SELECT id,re_ip,re_time,re_ua,re_url,re_method,re_content,access_time FROM b_op_log WHERE (re_url = ?) ORDER BY re_time DESC limit 0, 1000
+2026-03-04 09:15:38.547 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==> Parameters: /api/user/userLogin(String)
+2026-03-04 09:15:38.571 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - <==      Total: 89
+2026-03-04 09:15:38.574 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:15:38.575 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:15:38.573(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/opLog/loginLogList(String), GET(String), 30(String)
+2026-03-04 09:15:38.579 [ http-nio-9100-exec-9 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:15:40.312 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==>  Preparing: SELECT id,username,password,nickname,mobile,email,description,role,status,score,avatar,token,create_time,push_email,push_switch FROM b_user WHERE (token = ?)
+2026-03-04 09:15:40.313 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==> Parameters: 9116392dc24b7b84483ba00b0d72b80c(String)
+2026-03-04 09:15:40.315 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:15:40.471 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:15:40.472 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:15:40.471(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/overview/count(String), GET(String), 161(String)
+2026-03-04 09:15:40.475 [ http-nio-9100-exec-8 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:15:43.314 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.ErrorLogMapper.selectList : 137 ] - ==>  Preparing: SELECT id,ip,url,method,content,log_time FROM b_error_log
+2026-03-04 09:15:43.315 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.ErrorLogMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:15:43.363 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.ErrorLogMapper.selectList : 137 ] - <==      Total: 289
+2026-03-04 09:15:43.367 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:15:43.367 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:15:43.366(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/errorLog/list(String), GET(String), 61(String)
+2026-03-04 09:15:43.370 [ http-nio-9100-exec-10 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:15:47.111 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==>  Preparing: SELECT id,re_ip,re_time,re_ua,re_url,re_method,re_content,access_time FROM b_op_log ORDER BY re_time DESC limit 0, 1000
+2026-03-04 09:15:47.113 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==> Parameters: 
+2026-03-04 09:15:47.183 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - <==      Total: 1000
+2026-03-04 09:15:47.186 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:15:47.187 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:15:47.185(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/opLog/list(String), GET(String), 76(String)
+2026-03-04 09:15:47.192 [ http-nio-9100-exec-3 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:15:49.846 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==>  Preparing: SELECT id,re_ip,re_time,re_ua,re_url,re_method,re_content,access_time FROM b_op_log WHERE (re_url = ?) ORDER BY re_time DESC limit 0, 1000
+2026-03-04 09:15:49.848 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - ==> Parameters: /api/user/userLogin(String)
+2026-03-04 09:15:49.877 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.selectList : 137 ] - <==      Total: 89
+2026-03-04 09:15:49.881 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:15:49.882 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:15:49.881(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/opLog/loginLogList(String), GET(String), 37(String)
+2026-03-04 09:15:49.887 [ http-nio-9100-exec-1 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:15:52.595 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==>  Preparing: SELECT id,username,password,nickname,mobile,email,description,role,status,score,avatar,token,create_time,push_email,push_switch FROM b_user WHERE (token = ?)
+2026-03-04 09:15:52.595 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - ==> Parameters: 9116392dc24b7b84483ba00b0d72b80c(String)
+2026-03-04 09:15:52.597 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.UserMapper.selectList : 137 ] - <==      Total: 1
+2026-03-04 09:15:52.725 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:15:52.727 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:15:52.724(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/overview/count(String), GET(String), 131(String)
+2026-03-04 09:15:52.730 [ http-nio-9100-exec-2 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1
+2026-03-04 09:15:54.564 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==>  Preparing: INSERT INTO b_op_log ( re_ip, re_time, re_ua, re_url, re_method, access_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+2026-03-04 09:15:54.565 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - ==> Parameters: 127.0.0.1(String), 2026-03-04 09:15:54.563(String), Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0(String), /api/overview/sysInfo(String), GET(String), 3(String)
+2026-03-04 09:15:54.569 [ http-nio-9100-exec-4 ] - [ DEBUG ] [ com.gk.study.mapper.OpLogMapper.insert : 137 ] - <==    Updates: 1

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gk.study.mapper.AppointmentMapper">
+
+    <!-- 查询指定日期和时间段的预约数量 -->
+    <select id="countByDateAndSlot" resultType="int">
+        SELECT COUNT(*)
+        FROM b_appointment
+        WHERE appointment_date = #{date}
+          AND slot_id = #{slotId}
+          AND status = '0'
+    </select>
+
+    <!-- 查询指定日期和时间段的预约数量（带锁） -->
+    <select id="countByDateAndSlotWithLock" resultType="int">
+        SELECT COUNT(*)
+        FROM b_appointment
+        WHERE appointment_date = #{date}
+          AND slot_id = #{slotId}
+          AND status = '0'
+        FOR UPDATE
+    </select>
+
+    <!-- 管理员查询所有预约列表 -->
+    <select id="getAllAppointments" resultType="com.gk.study.entity.Appointment">
+        SELECT 
+            a.*,
+            u.username,
+            t.title as thingTitle,
+            t.cover,
+            CONCAT(ts.start_time, '-', ts.end_time) as slotTime
+        FROM b_appointment a
+        LEFT JOIN b_user u ON a.user_id = u.id
+        LEFT JOIN b_thing t ON a.thing_id = t.id
+        LEFT JOIN b_time_slot ts ON a.slot_id = ts.id
+        ORDER BY a.create_time DESC
+    </select>
+
+</mapper>
