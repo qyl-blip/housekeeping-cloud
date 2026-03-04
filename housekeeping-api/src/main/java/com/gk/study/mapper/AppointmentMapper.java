@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.gk.study.entity.Appointment;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -38,13 +37,6 @@ public interface AppointmentMapper extends BaseMapper<Appointment> {
      * @param userId 用户ID
      * @return 预约列表，按创建时间倒序排列
      */
-    @Select("SELECT a.*, t.title as thing_title, t.cover, " +
-            "CONCAT(ts.start_time, '-', ts.end_time) as slot_time " +
-            "FROM b_appointment a " +
-            "LEFT JOIN b_thing t ON a.thing_id = t.id " +
-            "LEFT JOIN b_time_slot ts ON a.slot_id = ts.slot_id " +
-            "WHERE a.user_id = #{userId} " +
-            "ORDER BY a.create_time DESC")
     List<Appointment> selectUserAppointmentsWithDetails(@Param("userId") String userId);
     
     /**
@@ -52,13 +44,6 @@ public interface AppointmentMapper extends BaseMapper<Appointment> {
      * @param userId 服务提供者的用户ID
      * @return 预约列表，按创建时间倒序排列
      */
-    @Select("SELECT a.*, t.title as thing_title, t.cover, " +
-            "CONCAT(ts.start_time, '-', ts.end_time) as slot_time " +
-            "FROM b_appointment a " +
-            "LEFT JOIN b_thing t ON a.thing_id = t.id " +
-            "LEFT JOIN b_time_slot ts ON a.slot_id = ts.slot_id " +
-            "WHERE t.user_id = #{userId} " +
-            "ORDER BY a.create_time DESC")
     List<Appointment> selectReceivedAppointmentsWithDetails(@Param("userId") String userId);
     
     /**

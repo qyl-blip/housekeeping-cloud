@@ -32,7 +32,37 @@
         FROM b_appointment a
         LEFT JOIN b_user u ON a.user_id = u.id
         LEFT JOIN b_thing t ON a.thing_id = t.id
-        LEFT JOIN b_time_slot ts ON a.slot_id = ts.id
+        LEFT JOIN b_time_slot ts ON a.slot_id = ts.slot_id
+        ORDER BY a.create_time DESC
+    </select>
+
+    <!-- 查询用户的预约列表（包含服务详情和时间段信息） -->
+    <select id="selectUserAppointmentsWithDetails" resultType="com.gk.study.entity.Appointment">
+        SELECT 
+            a.*,
+            t.title as thingTitle,
+            t.cover,
+            CONCAT(ts.start_time, '-', ts.end_time) as slotTime
+        FROM b_appointment a
+        LEFT JOIN b_thing t ON a.thing_id = t.id
+        LEFT JOIN b_time_slot ts ON a.slot_id = ts.slot_id
+        WHERE a.user_id = #{userId}
+        ORDER BY a.create_time DESC
+    </select>
+
+    <!-- 查询服务提供者收到的预约列表（包含预约用户和服务详情） -->
+    <select id="selectReceivedAppointmentsWithDetails" resultType="com.gk.study.entity.Appointment">
+        SELECT 
+            a.*,
+            u.username,
+            t.title as thingTitle,
+            t.cover,
+            CONCAT(ts.start_time, '-', ts.end_time) as slotTime
+        FROM b_appointment a
+        LEFT JOIN b_user u ON a.user_id = u.id
+        LEFT JOIN b_thing t ON a.thing_id = t.id
+        LEFT JOIN b_time_slot ts ON a.slot_id = ts.slot_id
+        WHERE t.user_id = #{userId}
         ORDER BY a.create_time DESC
     </select>
 
