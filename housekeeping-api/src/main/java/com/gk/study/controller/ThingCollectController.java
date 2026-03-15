@@ -21,6 +21,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 收藏（ThingCollect）模块接口。
+ *
+ * <p>用于处理用户对服务（Thing）的收藏/取消收藏，以及查看个人收藏列表。
+ * 收藏/取消收藏成功后，会同步更新服务的收藏数（collectCount）。</p>
+ */
 @RestController
 @RequestMapping("/thingCollect")
 public class ThingCollectController {
@@ -33,6 +39,11 @@ public class ThingCollectController {
     @Autowired
     ThingService thingService;
 
+    /**
+     * 收藏某个服务（登录用户）。
+     *
+     * <p>如果已经收藏过，会直接返回提示，不会重复插入记录。</p>
+     */
     @Access(level = AccessLevel.LOGIN)
     @RequestMapping(value = "/collect", method = RequestMethod.POST)
     @Transactional
@@ -45,6 +56,12 @@ public class ThingCollectController {
         return new APIResponse(ResponeCode.SUCCESS, "收藏成功");
     }
 
+    /**
+     * 取消收藏（登录用户）。
+     *
+     * <p>支持两种定位方式：
+     * 1) 直接传收藏记录ID；2) 传 userId + thingId 组合。</p>
+     */
     @Access(level = AccessLevel.LOGIN)
     @RequestMapping(value = "/unCollect", method = RequestMethod.POST)
     @Transactional
@@ -63,6 +80,12 @@ public class ThingCollectController {
         return new APIResponse(ResponeCode.SUCCESS, "取消收藏成功");
     }
 
+    /**
+     * 查询用户收藏列表。
+     *
+     * <p>返回结果为 join 后的 Map 列表（便于前端展示服务标题/封面等字段）。
+     * 支持可选分页：page/pageSize 同时传入时进行内存分页。</p>
+     */
     @RequestMapping(value = "/getUserCollectList", method = RequestMethod.GET)
     @Transactional
     public APIResponse getUserCollectList(String userId, Integer page, Integer pageSize) throws IOException {

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850">
+<style>.box{fill:white;stroke:black;stroke-width:1.5}.text{font-family:SimHei,Microsoft YaHei,Arial,sans-serif;font-size:12px;text-anchor:middle}.title{font-size:14px;font-weight:bold}.line{stroke:black;stroke-width:1.5;fill:none}.arrow{fill:black}</style>
+<text x="600" y="30" class="text title">服务管理模块流程图</text>
+<rect x="530" y="50" width="140" height="40" rx="20" class="box"/><text x="600" y="75" class="text">开始</text>
+<line x1="600" y1="90" x2="600" y2="130" class="line"/><polygon points="600,130 595,120 605,120" class="arrow"/>
+<path d="M 550 130 L 600 170 L 650 130 L 600 90 Z" class="box"/><text x="600" y="155" class="text">选择操作</text>
+<line x1="550" y1="130" x2="280" y2="130" class="line"/><polygon points="280,130 290,125 290,135" class="arrow"/><text x="415" y="125" class="text">发布服务</text>
+<line x1="650" y1="130" x2="920" y2="130" class="line"/><polygon points="920,130 910,125 910,135" class="arrow"/><text x="785" y="125" class="text">浏览搜索</text>
+<rect x="210" y="140" width="140" height="40" class="box"/><text x="280" y="165" class="text">填写服务信息</text>
+<line x1="280" y1="180" x2="280" y2="210" class="line"/><polygon points="280,210 275,200 285,200" class="arrow"/>
+<rect x="160" y="210" width="240" height="50" class="box"/><text x="280" y="225" class="text">基本信息(标题/描述/价格)</text><text x="280" y="240" class="text">联系方式(电话/地址)</text><text x="280" y="255" class="text">分类/标签/封面图</text>
+<line x1="280" y1="260" x2="280" y2="290" class="line"/><polygon points="280,290 275,280 285,280" class="arrow"/>
+<rect x="210" y="290" width="140" height="40" class="box"/><text x="280" y="315" class="text">上传服务图片</text>
+<line x1="280" y1="330" x2="280" y2="360" class="line"/><polygon points="280,360 275,350 285,350" class="arrow"/>
+<rect x="210" y="360" width="140" height="40" class="box"/><text x="280" y="385" class="text">选择服务标签</text>
+<line x1="280" y1="400" x2="280" y2="430" class="line"/><polygon points="280,430 275,420 285,420" class="arrow"/>
+<rect x="210" y="430" width="140" height="40" class="box"/><text x="280" y="455" class="text">提交发布</text>
+<line x1="280" y1="470" x2="280" y2="500" class="line"/><polygon points="280,500 275,490 285,490" class="arrow"/>
+<rect x="160" y="500" width="240" height="50" class="box"/><text x="280" y="515" class="text">后端处理</text><text x="280" y="530" class="text">设置创建时间</text><text x="280" y="545" class="text">初始化统计字段(PV/收藏/心愿)</text>
+<line x1="280" y1="550" x2="280" y2="580" class="line"/><polygon points="280,580 275,570 285,570" class="arrow"/>
+<rect x="210" y="580" width="140" height="40" class="box"/><text x="280" y="605" class="text">插入服务记录到数据库</text>
+<line x1="280" y1="620" x2="280" y2="650" class="line"/><polygon points="280,650 275,640 285,640" class="arrow"/>
+<rect x="190" y="650" width="180" height="40" class="box"/><text x="280" y="675" class="text">处理标签关联(thing_tag表)</text>
+<line x1="280" y1="690" x2="280" y2="720" class="line"/><polygon points="280,720 275,710 285,710" class="arrow"/>
+<rect x="210" y="720" width="140" height="40" class="box"/><text x="280" y="745" class="text">返回发布成功</text>
+<line x1="350" y1="740" x2="600" y2="740" class="line"/><line x1="600" y1="740" x2="600" y2="800" class="line"/><polygon points="600,800 595,790 605,790" class="arrow"/>
+<rect x="850" y="140" width="140" height="40" class="box"/><text x="920" y="165" class="text">输入搜索条件</text>
+<line x1="920" y1="180" x2="920" y2="210" class="line"/><polygon points="920,210 915,200 925,200" class="arrow"/>
+<rect x="800" y="210" width="240" height="50" class="box"/><text x="920" y="225" class="text">多条件查询</text><text x="920" y="240" class="text">关键词模糊搜索(title)</text><text x="920" y="255" class="text">分类筛选/标签筛选</text>
+<line x1="920" y1="260" x2="920" y2="290" class="line"/><polygon points="920,290 915,280 925,280" class="arrow"/>
+<rect x="820" y="290" width="200" height="40" class="box"/><text x="920" y="315" class="text">排序处理(最新/热门/推荐)</text>
+<line x1="920" y1="330" x2="920" y2="360" class="line"/><polygon points="920,360 915,350 925,350" class="arrow"/>
+<rect x="820" y="360" width="200" height="40" class="box"/><text x="920" y="385" class="text">关联查询标签(thing_tag表)</text>
+<line x1="920" y1="400" x2="920" y2="430" class="line"/><polygon points="920,430 915,420 925,420" class="arrow"/>
+<rect x="850" y="430" width="140" height="40" class="box"/><text x="920" y="455" class="text">返回服务列表</text>
+<line x1="920" y1="470" x2="920" y2="500" class="line"/><polygon points="920,500 915,490 925,490" class="arrow"/>
+<rect x="850" y="500" width="140" height="40" class="box"/><text x="920" y="525" class="text">点击查看详情</text>
+<line x1="920" y1="540" x2="920" y2="570" class="line"/><polygon points="920,570 915,560 925,560" class="arrow"/>
+<rect x="830" y="570" width="180" height="40" class="box"/><text x="920" y="595" class="text">浏览量PV+1(自动统计)</text>
+<line x1="920" y1="610" x2="920" y2="640" class="line"/><polygon points="920,640 915,630 925,630" class="arrow"/>
+<rect x="850" y="640" width="140" height="40" class="box"/><text x="920" y="665" class="text">显示服务详情</text>
+<line x1="920" y1="680" x2="920" y2="710" class="line"/><polygon points="920,710 915,700 925,700" class="arrow"/>
+<rect x="850" y="710" width="140" height="40" class="box"/><text x="920" y="735" class="text">收藏/心愿单操作</text>
+<line x1="850" y1="730" x2="600" y2="730" class="line"/><line x1="600" y1="730" x2="600" y2="800" class="line"/><polygon points="600,800 595,790 605,790" class="arrow"/>
+<rect x="530" y="800" width="140" height="40" rx="20" class="box"/><text x="600" y="825" class="text">结束</text>
+<text x="500" y="210" class="text title">管理员审核</text>
+<rect x="430" y="230" width="140" height="40" class="box"/><text x="500" y="255" class="text">查看待审核服务</text>
+<line x1="500" y1="270" x2="500" y2="310" class="line"/><polygon points="500,310 495,300 505,300" class="arrow"/>
+<path d="M 450 310 L 500 350 L 550 310 L 500 270 Z" class="box"/><text x="500" y="335" class="text">审核通过</text>
+<line x1="450" y1="310" x2="380" y2="310" class="line"/><line x1="380" y1="310" x2="380" y2="380" class="line"/><polygon points="380,380 375,370 385,370" class="arrow"/><text x="415" y="345" class="text">否</text>
+<rect x="310" y="380" width="140" height="40" class="box"/><text x="380" y="405" class="text">设置状态为已下架</text>
+<line x1="500" y1="350" x2="500" y2="380" class="line"/><polygon points="500,380 495,370 505,370" class="arrow"/><text x="520" y="370" class="text">是</text>
+<rect x="430" y="380" width="140" height="40" class="box"/><text x="500" y="405" class="text">设置状态为已上架</text>
+</svg>

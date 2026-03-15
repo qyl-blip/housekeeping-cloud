@@ -23,6 +23,18 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * 轮播图（Banner）模块接口。
+ *
+ * <p>主要功能：</p>
+ * <ul>
+ *   <li>查询轮播图列表（前台展示）</li>
+ *   <li>管理员创建/更新/删除轮播图</li>
+ * </ul>
+ *
+ * <p>图片上传说明：创建/更新时如携带 {@code imageFile}，会落盘到 {@code File.uploadPath/image/}
+ * 目录，并把文件名写入 {@code banner.image} 字段。</p>
+ */
 @RestController
 @RequestMapping("/banner")
 public class BannerController {
@@ -35,6 +47,12 @@ public class BannerController {
     @Value("${File.uploadPath}")
     private String uploadPath;
 
+    /**
+     * 查询轮播图列表。
+     *
+     * @param page     页码（可选）
+     * @param pageSize 每页条数（可选）
+     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public APIResponse list(Integer page, Integer pageSize){
         List<Banner> list = service.getBannerList();
@@ -44,6 +62,13 @@ public class BannerController {
         return new APIResponse(ResponeCode.SUCCESS, "获取成功", list);
     }
 
+    /**
+     * 新增轮播图（管理员）。
+     *
+     * <p>如上传了图片文件，会自动保存图片并把文件名写入 banner.image。</p>
+     *
+     * @param banner 轮播图信息
+     */
     @Access(level = AccessLevel.ADMIN)
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @Transactional
@@ -56,6 +81,11 @@ public class BannerController {
         return new APIResponse(ResponeCode.SUCCESS, "创建成功");
     }
 
+    /**
+     * 删除轮播图（管理员，支持批量）。
+     *
+     * @param ids 轮播图ID，英文逗号分隔
+     */
     @Access(level = AccessLevel.ADMIN)
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public APIResponse delete(String ids){
@@ -71,6 +101,13 @@ public class BannerController {
         return new APIResponse(ResponeCode.SUCCESS, "删除成功");
     }
 
+    /**
+     * 更新轮播图（管理员）。
+     *
+     * <p>如上传了图片文件，会自动保存图片并更新 banner.image。</p>
+     *
+     * @param banner 轮播图信息
+     */
     @Access(level = AccessLevel.ADMIN)
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @Transactional
@@ -83,6 +120,13 @@ public class BannerController {
         return new APIResponse(ResponeCode.SUCCESS, "更新成功");
     }
 
+    /**
+     * 保存轮播图图片（如果前端携带了 imageFile）。
+     *
+     * <p>文件落盘路径：uploadPath/image/{uuid}.ext</p>
+     *
+     * @return 新文件名（不含目录），未上传则返回 null
+     */
     private String saveBanner(Banner banner) throws IOException {
         MultipartFile file = banner.getImageFile();
         String newFileName = null;

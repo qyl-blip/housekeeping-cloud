@@ -8,7 +8,6 @@ BASE_LOCATION: D:/aliyun_workspace/java_jiazheng
 DB_NAME: java_jiazheng
 
 # ==========================================
-# 【重要】下面这 2 行是你之前漏掉的，必须加上！
 File:
   uploadPath: ${BASE_LOCATION}/server/upload/
 # ==========================================
@@ -59,8 +58,8 @@ spring:
   # 文件上传配置
   servlet:
     multipart:
-      max-request-size: 10MB
-      max-file-size: 1MB
+      max-request-size: 50MB
+      max-file-size: 10MB
       # 确保这个路径下的文件夹存在
       location: ${BASE_LOCATION}/server/upload/tmp
       enabled: true

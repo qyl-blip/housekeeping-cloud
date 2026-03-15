@@ -8,47 +8,54 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * AppointmentMapper 接口
- * 提供预约数据访问功能，包括查询预约数量和并发控制
+ * 预约（Appointment）数据访问层。
+ *
+ * <p>对应表：b_appointment。除基础 CRUD 外，提供一些统计/联表查询：
+ * - 名额控制：通过带锁统计（FOR UPDATE）防止同一时间段被并发预约“超卖”；
+ * - 列表查询：联表回填服务标题/封面、时间段文字等展示字段。</p>
+ *
+ * <p>自定义 SQL 见：resources/mapper/AppointmentMapper.xml。</p>
  */
 @Mapper
 public interface AppointmentMapper extends BaseMapper<Appointment> {
     
     /**
-     * 查询指定日期和时间段的预约数量
-     * @param date 预约日期 (格式: yyyy-MM-dd)
-     * @param slotId 时间段ID
-     * @return 预约数量
+     * 统计指定日期 + 时间段的“有效预约”数量。
+     *
+     * <p>统计口径以 XML 为准：当前仅统计 status='0' 的记录（表示仍占用名额）。</p>
      */
     int countByDateAndSlot(@Param("date") String date, @Param("slotId") String slotId);
     
     /**
-     * 查询指定日期和时间段的预约数量（带锁）
-     * 使用 SELECT FOR UPDATE 锁定记录，确保并发安全
-     * 用于预约创建时检查时间段可用性
-     * @param date 预约日期 (格式: yyyy-MM-dd)
-     * @param slotId 时间段ID
-     * @return 预约数量
+     * 统计指定日期 + 时间段的“有效预约”数量（带锁）。
+     *
+     * <p>SQL 使用 FOR UPDATE，对统计范围加行锁（或间隙锁），
+     * 需要在事务中调用，用于创建预约时的并发名额控制。</p>
      */
     int countByDateAndSlotWithLock(@Param("date") String date, @Param("slotId") String slotId);
     
     /**
-     * 查询用户的预约列表（包含关联的服务和时间段信息）
-     * @param userId 用户ID
-     * @return 预约列表，按创建时间倒序排列
+     * 查询用户的预约列表（我的预约）。
+     *
+     * <p>对应 XML：AppointmentMapper.xml#selectUserAppointmentsWithDetails
+     * 会联表回填：服务标题/封面、时间段文字（slotTime）等字段。</p>
      */
     List<Appointment> selectUserAppointmentsWithDetails(@Param("userId") String userId);
     
     /**
-     * 查询服务提供者收到的预约列表（包含关联的服务和时间段信息）
-     * @param userId 服务提供者的用户ID
-     * @return 预约列表，按创建时间倒序排列
+     * 查询服务提供者收到的预约列表。
+     *
+     * <p>对应 XML：AppointmentMapper.xml#selectReceivedAppointmentsWithDetails
+     * 过滤条件为：b_thing.user_id = userId（即服务发布者/提供者）。
+     * 同时联表回填预约用户用户名、服务信息与时间段文字。</p>
      */
     List<Appointment> selectReceivedAppointmentsWithDetails(@Param("userId") String userId);
     
     /**
-     * 管理员查询所有预约列表（包含关联的用户、服务和时间段信息）
-     * @return 所有预约列表，按创建时间倒序排列
+     * 管理端：查询全部预约列表。
+     *
+     * <p>对应 XML：AppointmentMapper.xml#getAllAppointments
+     * 会联表回填预约用户、服务信息与时间段文字。</p>
      */
     List<Appointment> getAllAppointments();
 }

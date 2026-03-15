@@ -21,8 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 预约服务实现类
- * 提供预约时间选择和预约创建功能
+ * 预约（Appointment）业务实现。
+ *
+ * <p>实现要点：</p>
+ * <ul>
+ *   <li>时间段配置来自 b_time_slot（{@link TimeSlotMapper}）。</li>
+ *   <li>创建预约时通过带锁统计（FOR UPDATE）做并发名额控制，防止同一时间段被超卖。</li>
+ *   <li>名额占用的统计口径：以 {@code AppointmentMapper.xml} 中的 status 条件为准（当前为 status='0'）。</li>
+ * </ul>
  */
 @Service
 public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appointment> implements AppointmentService {
@@ -34,10 +40,13 @@ public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appoi
     private TimeSlotMapper timeSlotMapper;
     
     /**
-     * 获取指定日期的可用时间段
-     * @param date 日期 (格式: yyyy-MM-dd)
-     * @param thingId 服务ID
-     * @return 时间段列表（包含可用状态）
+     * 查询某天某个服务的可预约时间段列表。
+     *
+     * <p>实现方式：读取所有启用的时间段配置，然后逐个统计“该日期该时间段的已预约数量”，
+     * 最终计算是否仍可预约（bookedCount &lt; maxCapacity）。</p>
+     *
+     * @param date    日期（yyyy-MM-dd）
+     * @param thingId 服务ID（当前实现未直接参与计算，保留参数便于后续扩展）
      */
     @Override
     public List<TimeSlotDTO> getAvailableSlots(String date, String thingId) {
@@ -70,10 +79,15 @@ public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appoi
     }
     
     /**
-     * 创建预约记录
-     * @param appointment 预约信息
-     * @throws com.gk.study.exception.AppointmentConflictException 时间段已被预约
-     * @throws com.gk.study.exception.InvalidDateException 日期无效
+     * 创建预约（带名额与并发控制）。
+     *
+     * <p>流程：</p>
+     * <ol>
+     *   <li>校验日期格式与“不能预约过去日期”</li>
+     *   <li>校验时间段存在且启用</li>
+     *   <li>使用 FOR UPDATE 带锁统计当前占用数量，并与 maxCapacity 比较</li>
+     *   <li>生成预约编号并入库</li>
+     * </ol>
      */
     @Override
     @Transactional
@@ -119,10 +133,7 @@ public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appoi
     }
     
     /**
-     * 检查时间段是否可用
-     * @param date 日期 (格式: yyyy-MM-dd)
-     * @param slotId 时间段ID
-     * @return 是否可用
+     * 判断某天某时间段是否仍可预约。
      */
     @Override
     public boolean isSlotAvailable(String date, String slotId) {
@@ -140,9 +151,7 @@ public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appoi
     }
     
     /**
-     * 获取用户的预约列表
-     * @param userId 用户ID
-     * @return 预约列表,按创建时间倒序排列，包含服务标题、封面图和时间段信息
+     * 查询用户的预约列表（我的预约）。
      */
     @Override
     public List<Appointment> getUserAppointments(String userId) {
@@ -150,9 +159,7 @@ public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appoi
     }
     
     /**
-     * 获取服务提供者收到的预约列表
-     * @param userId 服务提供者的用户ID
-     * @return 预约列表
+     * 查询服务提供者收到的预约列表。
      */
     @Override
     public List<Appointment> getReceivedAppointments(String userId) {
@@ -160,9 +167,7 @@ public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appoi
     }
     
     /**
-     * 根据ID获取预约
-     * @param appointmentId 预约ID
-     * @return 预约对象
+     * 按主键查询预约。
      */
     @Override
     public Appointment getAppointmentById(String appointmentId) {
@@ -170,8 +175,7 @@ public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appoi
     }
     
     /**
-     * 更新预约信息
-     * @param appointment 预约对象
+     * 更新预约信息（包含状态更新）。
      */
     @Override
     public void updateAppointment(Appointment appointment) {
@@ -179,8 +183,7 @@ public class AppointmentServiceImpl extends ServiceImpl<AppointmentMapper, Appoi
     }
     
     /**
-     * 管理员获取所有预约列表
-     * @return 所有预约列表
+     * 管理端：查询全部预约列表。
      */
     @Override
     public List<Appointment> getAllAppointments() {

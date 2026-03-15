@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+<style>.box{fill:white;stroke:black;stroke-width:1.5}.text{font-family:SimHei,Microsoft YaHei,Arial,sans-serif;font-size:11px;text-anchor:middle}.title{font-size:14px;font-weight:bold}.line{stroke:black;stroke-width:1.5;fill:none}.arrow{fill:black}.swimlane{fill:#f0f0f0;stroke:black;stroke-width:1}</style>
+<text x="450" y="25" class="text title">用户注册登录活动图</text>
+<rect x="50" y="50" width="250" height="600" class="swimlane"/><text x="175" y="70" class="text title">用户</text>
+<rect x="300" y="50" width="250" height="600" class="swimlane"/><text x="425" y="70" class="text title">前端系统</text>
+<rect x="550" y="50" width="300" height="600" class="swimlane"/><text x="700" y="70" class="text title">后端系统</text>
+<circle cx="175" cy="100" r="15" fill="black"/><line x1="175" y1="115" x2="175" y2="140" class="line"/><polygon points="175,140 170,130 180,130" class="arrow"/>
+<rect x="120" y="140" width="110" height="35" rx="5" class="box"/><text x="175" y="162" class="text">访问系统</text>
+<line x1="175" y1="175" x2="175" y2="200" class="line"/><polygon points="175,200 170,190 180,190" class="arrow"/>
+<path d="M 145 200 L 175 230 L 205 200 L 175 170 Z" class="box"/><text x="175" y="218" class="text">注册/登录</text>
+<line x1="205" y1="200" x2="425" y2="200" class="line"/><polygon points="425,200 415,195 415,205" class="arrow"/><text x="315" y="195" class="text">注册</text>
+<rect x="355" y="210" width="140" height="35" rx="5" class="box"/><text x="425" y="232" class="text">显示注册表单</text>
+<line x1="425" y1="245" x2="425" y2="270" class="line"/><polygon points="425,270 420,260 430,260" class="arrow"/>
+<rect x="355" y="270" width="140" height="35" rx="5" class="box"/><text x="425" y="292" class="text">填写用户信息</text>
+<line x1="425" y1="305" x2="425" y2="330" class="line"/><polygon points="425,330 420,320 430,320" class="arrow"/>
+<rect x="355" y="330" width="140" height="35" rx="5" class="box"/><text x="425" y="352" class="text">提交注册请求</text>
+<line x1="495" y1="347" x2="700" y2="347" class="line"/><polygon points="700,347 690,342 690,352" class="arrow"/>
+<rect x="610" y="360" width="180" height="35" rx="5" class="box"/><text x="700" y="382" class="text">验证用户名是否存在</text>
+<line x1="700" y1="395" x2="700" y2="425" class="line"/><polygon points="700,425 695,415 705,415" class="arrow"/>
+<path d="M 660 425 L 700 455 L 740 425 L 700 395 Z" class="box"/><text x="700" y="443" class="text">已存在</text>
+<line x1="740" y1="425" x2="820" y2="425" class="line"/><line x1="820" y1="425" x2="820" y2="347" class="line"/><line x1="820" y1="347" x2="790" y2="347" class="line"/><polygon points="790,347 800,342 800,352" class="arrow"/><text x="840" y="385" class="text">是</text>
+<line x1="700" y1="455" x2="700" y2="485" class="line"/><polygon points="700,485 695,475 705,475" class="arrow"/><text x="720" y="475" class="text">否</text>
+<rect x="610" y="485" width="180" height="35" rx="5" class="box"/><text x="700" y="507" class="text">密码MD5加密存储</text>
+<line x1="700" y1="520" x2="700" y2="545" class="line"/><polygon points="700,545 695,535 705,535" class="arrow"/>
+<rect x="610" y="545" width="180" height="35" rx="5" class="box"/><text x="700" y="567" class="text">生成Token返回用户信息</text>
+<line x1="610" y1="562" x2="425" y2="562" class="line"/><polygon points="425,562 435,557 435,567" class="arrow"/>
+<rect x="355" y="575" width="140" height="35" rx="5" class="box"/><text x="425" y="597" class="text">存储Token跳转首页</text>
+<line x1="355" y1="592" x2="175" y2="592" class="line"/><polygon points="175,592 185,587 185,597" class="arrow"/>
+<rect x="120" y="605" width="110" height="35" rx="5" class="box"/><text x="175" y="627" class="text">进入系统</text>
+<line x1="145" y1="200" x2="50" y2="200" class="line"/><line x1="50" y1="200" x2="50" y2="400" class="line"/><polygon points="50,400 45,390 55,390" class="arrow"/><text x="70" y="195" class="text">登录</text>
+<rect x="355" y="400" width="140" height="35" rx="5" class="box"/><text x="425" y="422" class="text">显示登录表单</text>
+<line x1="425" y1="435" x2="425" y2="460" class="line"/><polygon points="425,460 420,450 430,450" class="arrow"/>
+<rect x="355" y="460" width="140" height="35" rx="5" class="box"/><text x="425" y="482" class="text">输入用户名密码</text>
+<line x1="495" y1="477" x2="580" y2="477" class="line"/><polygon points="580,477 570,472 570,482" class="arrow"/>
+<rect x="580" y="490" width="180" height="35" rx="5" class="box"/><text x="670" y="512" class="text">密码MD5加密验证</text>
+<line x1="670" y1="525" x2="670" y2="555" class="line"/><polygon points="670,555 665,545 675,545" class="arrow"/>
+<path d="M 630 555 L 670 585 L 710 555 L 670 525 Z" class="box"/><text x="670" y="573" class="text">验证成功</text>
+<line x1="710" y1="555" x2="780" y2="555" class="line"/><line x1="780" y1="555" x2="780" y2="477" class="line"/><line x1="780" y1="477" x2="760" y2="477" class="line"/><polygon points="760,477 770,472 770,482" class="arrow"/><text x="800" y="515" class="text">否</text>
+<line x1="630" y1="555" x2="425" y2="555" class="line"/><line x1="425" y1="555" x2="425" y2="575" class="line"/><polygon points="425,575 420,565 430,565" class="arrow"/><text x="527" y="550" class="text">是</text>
+</svg>

@@ -38,6 +38,8 @@ public class Thing implements Serializable {
     @TableField
     public String location;
     @TableField
+    public String city;
+    @TableField
     public String pv;
     @TableField
     public String recommendCount;

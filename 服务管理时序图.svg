@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1050" viewBox="0 0 1100 1050">
+<style>.box{fill:white;stroke:black;stroke-width:1.5}.text{font-family:SimHei,Microsoft YaHei,Arial,sans-serif;font-size:11px;text-anchor:middle}.title{font-size:14px;font-weight:bold}.line{stroke:black;stroke-width:1.5;fill:none}.dashed{stroke:black;stroke-width:1.5;stroke-dasharray:5,5;fill:none}.arrow{fill:black}.lifeline{stroke:black;stroke-width:1.5;stroke-dasharray:5,5}</style>
+<text x="550" y="25" class="text title">服务管理时序图</text>
+<rect x="60" y="50" width="100" height="40" class="box"/><text x="110" y="75" class="text">管理员</text>
+<line x1="110" y1="90" x2="110" y2="1020" class="lifeline"/>
+<rect x="230" y="50" width="100" height="40" class="box"/><text x="280" y="75" class="text">前端页面</text>
+<line x1="280" y1="90" x2="280" y2="1020" class="lifeline"/>
+<rect x="400" y="50" width="100" height="40" class="box"/><text x="450" y="75" class="text">Controller</text>
+<line x1="450" y1="90" x2="450" y2="1020" class="lifeline"/>
+<rect x="570" y="50" width="100" height="40" class="box"/><text x="620" y="75" class="text">Service</text>
+<line x1="620" y1="90" x2="620" y2="1020" class="lifeline"/>
+<rect x="740" y="50" width="100" height="40" class="box"/><text x="790" y="75" class="text">数据库</text>
+<line x1="790" y1="90" x2="790" y2="1020" class="lifeline"/>
+<rect x="910" y="50" width="100" height="40" class="box"/><text x="960" y="75" class="text">OSS存储</text>
+<line x1="960" y1="90" x2="960" y2="1020" class="lifeline"/>
+<text x="550" y="120" class="text title">查询服务列表</text>
+<line x1="110" y1="140" x2="280" y2="140" class="line"/><polygon points="280,140 270,135 270,145" class="arrow"/><text x="195" y="135" class="text">1:进入服务管理</text>
+<line x1="280" y1="160" x2="450" y2="160" class="line"/><polygon points="450,160 440,155 440,165" class="arrow"/><text x="365" y="155" class="text">2:GET /service/list</text>
+<line x1="450" y1="180" x2="620" y2="180" class="line"/><polygon points="620,180 610,175 610,185" class="arrow"/><text x="535" y="175" class="text">3:getServiceList()</text>
+<line x1="620" y1="200" x2="790" y2="200" class="line"/><polygon points="790,200 780,195 780,205" class="arrow"/><text x="705" y="195" class="text">4:SELECT服务列表</text>
+<line x1="790" y1="220" x2="620" y2="220" class="dashed"/><polygon points="620,220 630,215 630,225" class="arrow"/><text x="705" y="215" class="text">5:返回服务数据</text>
+<line x1="620" y1="240" x2="450" y2="240" class="dashed"/><polygon points="450,240 460,235 460,245" class="arrow"/><text x="535" y="235" class="text">6:返回服务列表</text>
+<line x1="450" y1="260" x2="280" y2="260" class="dashed"/><polygon points="280,260 290,255 290,265" class="arrow"/><text x="365" y="255" class="text">7:显示服务列表</text>
+<text x="550" y="290" class="text title">新增服务</text>
+<line x1="110" y1="310" x2="280" y2="310" class="line"/><polygon points="280,310 270,305 270,315" class="arrow"/><text x="195" y="305" class="text">8:点击新增服务</text>
+<line x1="280" y1="330" x2="110" y2="330" class="dashed"/><polygon points="110,330 120,325 120,335" class="arrow"/><text x="195" y="325" class="text">9:显示新增表单</text>
+<line x1="110" y1="350" x2="280" y2="350" class="line"/><polygon points="280,350 270,345 270,355" class="arrow"/><text x="195" y="345" class="text">10:填写服务信息</text>
+<line x1="110" y1="370" x2="280" y2="370" class="line"/><polygon points="280,370 270,365 270,375" class="arrow"/><text x="195" y="365" class="text">11:上传服务图片</text>
+<line x1="280" y1="390" x2="450" y2="390" class="line"/><polygon points="450,390 440,385 440,395" class="arrow"/><text x="365" y="385" class="text">12:POST /upload/image</text>
+<line x1="450" y1="410" x2="620" y2="410" class="line"/><polygon points="620,410 610,405 610,415" class="arrow"/><text x="535" y="405" class="text">13:uploadImage()</text>
+<line x1="620" y1="430" x2="960" y2="430" class="line"/><polygon points="960,430 950,425 950,435" class="arrow"/><text x="790" y="425" class="text">14:上传到OSS</text>
+<line x1="960" y1="450" x2="620" y2="450" class="dashed"/><polygon points="620,450 630,445 630,455" class="arrow"/><text x="790" y="445" class="text">15:返回图片URL</text>
+<line x1="620" y1="470" x2="280" y2="470" class="dashed"/><polygon points="280,470 290,465 290,475" class="arrow"/><text x="450" y="465" class="text">16:返回图片地址</text>
+<line x1="110" y1="490" x2="280" y2="490" class="line"/><polygon points="280,490 270,485 270,495" class="arrow"/><text x="195" y="485" class="text">17:提交服务信息</text>
+<line x1="280" y1="510" x2="450" y2="510" class="line"/><polygon points="450,510 440,505 440,515" class="arrow"/><text x="365" y="505" class="text">18:POST /service/add</text>
+<line x1="450" y1="530" x2="620" y2="530" class="line"/><polygon points="620,530 610,525 610,535" class="arrow"/><text x="535" y="525" class="text">19:addService()</text>
+<rect x="600" y="545" width="40" height="40" fill="#e0e0e0" stroke="black" stroke-width="1"/>
+<text x="620" y="560" class="text">验证</text>
+<text x="620" y="575" class="text">服务</text>
+<text x="620" y="590" class="text">信息</text>
+<line x1="620" y1="585" x2="790" y2="585" class="line"/><polygon points="790,585 780,580 780,590" class="arrow"/><text x="705" y="580" class="text">20:INSERT服务记录</text>
+<line x1="790" y1="605" x2="620" y2="605" class="dashed"/><polygon points="620,605 630,600 630,610" class="arrow"/><text x="705" y="600" class="text">21:插入成功</text>
+<line x1="620" y1="625" x2="450" y2="625" class="dashed"/><polygon points="450,625 460,620 460,630" class="arrow"/><text x="535" y="620" class="text">22:返回服务信息</text>
+<line x1="450" y1="645" x2="280" y2="645" class="dashed"/><polygon points="280,645 290,640 290,650" class="arrow"/><text x="365" y="640" class="text">23:新增成功响应</text>
+<line x1="280" y1="665" x2="110" y2="665" class="dashed"/><polygon points="110,665 120,660 120,670" class="arrow"/><text x="195" y="660" class="text">24:显示成功提示</text>
+<text x="550" y="695" class="text title">编辑服务</text>
+<line x1="110" y1="715" x2="280" y2="715" class="line"/><polygon points="280,715 270,710 270,720" class="arrow"/><text x="195" y="710" class="text">25:点击编辑</text>
+<line x1="280" y1="735" x2="450" y2="735" class="line"/><polygon points="450,735 440,730 440,740" class="arrow"/><text x="365" y="730" class="text">26:GET /service/{id}</text>
+<line x1="450" y1="755" x2="620" y2="755" class="line"/><polygon points="620,755 610,750 610,760" class="arrow"/><text x="535" y="750" class="text">27:getServiceById()</text>
+<line x1="620" y1="775" x2="790" y2="775" class="line"/><polygon points="790,775 780,770 780,780" class="arrow"/><text x="705" y="770" class="text">28:SELECT服务详情</text>
+<line x1="790" y1="795" x2="620" y2="795" class="dashed"/><polygon points="620,795 630,790 630,800" class="arrow"/><text x="705" y="790" class="text">29:返回服务详情</text>
+<line x1="620" y1="815" x2="280" y2="815" class="dashed"/><polygon points="280,815 290,810 290,820" class="arrow"/><text x="450" y="810" class="text">30:返回服务数据</text>
+<line x1="280" y1="835" x2="110" y2="835" class="dashed"/><polygon points="110,835 120,830 120,840" class="arrow"/><text x="195" y="830" class="text">31:回显服务信息</text>
+<line x1="110" y1="855" x2="280" y2="855" class="line"/><polygon points="280,855 270,850 270,860" class="arrow"/><text x="195" y="850" class="text">32:修改服务信息</text>
+<line x1="280" y1="875" x2="450" y2="875" class="line"/><polygon points="450,875 440,870 440,880" class="arrow"/><text x="365" y="870" class="text">33:POST /service/update</text>
+<line x1="450" y1="895" x2="620" y2="895" class="line"/><polygon points="620,895 610,890 610,900" class="arrow"/><text x="535" y="890" class="text">34:updateService()</text>
+<line x1="620" y1="915" x2="790" y2="915" class="line"/><polygon points="790,915 780,910 780,920" class="arrow"/><text x="705" y="910" class="text">35:UPDATE服务记录</text>
+<line x1="790" y1="935" x2="620" y2="935" class="dashed"/><polygon points="620,935 630,930 630,940" class="arrow"/><text x="705" y="930" class="text">36:更新成功</text>
+<line x1="620" y1="955" x2="280" y2="955" class="dashed"/><polygon points="280,955 290,950 290,960" class="arrow"/><text x="450" y="950" class="text">37:返回更新成功</text>
+<line x1="280" y1="975" x2="110" y2="975" class="dashed"/><polygon points="110,975 120,970 120,980" class="arrow"/><text x="195" y="970" class="text">38:显示修改成功</text>
+<text x="550" y="1005" class="text title">删除服务</text>
+</svg>

@@ -28,14 +28,17 @@ public class LocalController {
      */
     @GetMapping("/list")
     public List<Thing> list(@RequestParam String city,
-                            @RequestParam(required = false) Long classificationId, // 👈 新增：分类ID
+                            @RequestParam(required = false) Long classificationId,
                             @RequestParam(required = false) Double lat,
                             @RequestParam(required = false) Double lng,
                             @RequestParam(required = false) Long userId) {
 
+        System.out.println(">>> [DEBUG] 接收到请求：city=" + city + ", classificationId=" + classificationId);
+
         // 1. 获取基础数据：现在支持传入分类 ID 进行过滤
-        // 注意：你需要同步去 LocalService 里修改这个方法（见下方）
         List<Thing> services = localService.getServicesByCityAndType(city, classificationId);
+
+        System.out.println(">>> [DEBUG] LocalService 返回 " + (services != null ? services.size() : 0) + " 条数据");
 
         // 2. A/B 测试与机器学习排序逻辑保持不变
         if (userId != null && userId % 2 == 0) {
@@ -48,5 +51,21 @@ public class LocalController {
         }
 
         return services;
+    }
+
+    /**
+     * 调试接口：直接查询数据库中的所有数据
+     */
+    @GetMapping("/debug")
+    public List<Thing> debug() {
+        return localService.getAllServices();
+    }
+
+    /**
+     * 清除缓存接口
+     */
+    @GetMapping("/clearCache")
+    public String clearCache(@RequestParam(required = false) String city) {
+        return localService.clearCache(city);
     }
 }

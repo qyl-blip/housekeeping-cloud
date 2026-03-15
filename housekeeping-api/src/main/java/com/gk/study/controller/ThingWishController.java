@@ -21,6 +21,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 心愿单（ThingWish）模块接口。
+ *
+ * <p>用于处理用户对服务（Thing）的加入心愿/取消心愿，以及查看个人心愿单列表。
+ * 加入/取消成功后，会同步更新服务的心愿数（wishCount）。</p>
+ */
 @RestController
 @RequestMapping("/thingWish")
 public class ThingWishController {
@@ -33,6 +39,11 @@ public class ThingWishController {
     @Autowired
     ThingService thingService;
 
+    /**
+     * 加入心愿单（登录用户）。
+     *
+     * <p>如果已加入过，会直接返回提示，不会重复插入记录。</p>
+     */
     @Access(level = AccessLevel.LOGIN)
     @RequestMapping(value = "/wish", method = RequestMethod.POST)
     @Transactional
@@ -45,6 +56,12 @@ public class ThingWishController {
         return new APIResponse(ResponeCode.SUCCESS, "加入心愿成功");
     }
 
+    /**
+     * 取消心愿（登录用户）。
+     *
+     * <p>支持两种定位方式：
+     * 1) 直接传心愿记录ID；2) 传 userId + thingId 组合。</p>
+     */
     @Access(level = AccessLevel.LOGIN)
     @RequestMapping(value = "/unWish", method = RequestMethod.POST)
     @Transactional
@@ -63,6 +80,12 @@ public class ThingWishController {
         return new APIResponse(ResponeCode.SUCCESS, "取消心愿成功");
     }
 
+    /**
+     * 查询用户心愿单列表。
+     *
+     * <p>返回结果为 join 后的 Map 列表（便于前端展示服务标题/封面等字段）。
+     * 支持可选分页：page/pageSize 同时传入时进行内存分页。</p>
+     */
     @RequestMapping(value = "/getUserWishList", method = RequestMethod.GET)
     @Transactional
     public APIResponse getUserWishList(String userId, Integer page, Integer pageSize) throws IOException {

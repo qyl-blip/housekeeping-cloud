@@ -15,6 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * 系统概览/统计接口。
+ *
+ * <p>为管理后台提供首页统计数据与系统运行信息：
+ * 1) 最近 7 天 UV/PV（基于操作日志 b_op_log）；
+ * 2) 热门服务 TOP10（按订单数）；
+ * 3) 分类占比统计；
+ * 4) JVM/OS/CPU/内存等基础运行信息。</p>
+ *
+ * <p>说明：此 Controller 直接通过 {@link JdbcTemplate} 执行聚合 SQL，属于轻量统计查询，不走 MyBatis Mapper。</p>
+ */
 @RestController
 @RequestMapping("/overview")
 public class OverviewController {
@@ -24,6 +35,14 @@ public class OverviewController {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    /**
+     * 获取概览统计数据（管理端）。
+     *
+     * <p>返回字段：
+     * visitList：最近 7 天 UV/PV；
+     * popularThings：热门服务 TOP10；
+     * popularClassification：分类占比。</p>
+     */
     @Access(level = AccessLevel.ADMIN)
     @RequestMapping(value = "/count", method = RequestMethod.GET)
     public APIResponse list() {
@@ -130,6 +149,11 @@ public class OverviewController {
     
     /**
      * 获取系统信息
+     */
+    /**
+     * 获取系统运行信息（管理端）。
+     *
+     * <p>包含：系统/CPU/内存/Java 版本/语言与时区等信息，用于后台“系统信息”面板展示。</p>
      */
     @Access(level = AccessLevel.ADMIN)
     @RequestMapping(value = "/sysInfo", method = RequestMethod.GET)

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+<style>.box{fill:white;stroke:black;stroke-width:1.5}.text{font-family:SimHei,Microsoft YaHei,Arial,sans-serif;font-size:12px;text-anchor:middle}.title{font-size:14px;font-weight:bold}.line{stroke:black;stroke-width:1.5;fill:none}.arrow{fill:black}</style>
+<text x="450" y="30" class="text title">用户注册登录模块流程图</text>
+<rect x="380" y="50" width="140" height="40" rx="20" class="box"/><text x="450" y="75" class="text">开始</text>
+<line x1="450" y1="90" x2="450" y2="120" class="line"/><polygon points="450,120 445,110 455,110" class="arrow"/>
+<rect x="380" y="120" width="140" height="40" class="box"/><text x="450" y="145" class="text">用户访问系统</text>
+<line x1="450" y1="160" x2="450" y2="200" class="line"/><polygon points="450,200 445,190 455,190" class="arrow"/>
+<path d="M 380 200 L 450 240 L 520 200 L 450 160 Z" class="box"/><text x="450" y="205" class="text">选择注册或登录</text>
+<line x1="380" y1="200" x2="250" y2="200" class="line"/><polygon points="250,200 260,195 260,205" class="arrow"/><text x="315" y="195" class="text">注册</text>
+<line x1="520" y1="200" x2="650" y2="200" class="line"/><polygon points="650,200 640,195 640,205" class="arrow"/><text x="585" y="195" class="text">登录</text>
+<rect x="180" y="210" width="140" height="40" class="box"/><text x="250" y="235" class="text">填写注册信息</text>
+<line x1="250" y1="250" x2="250" y2="280" class="line"/><polygon points="250,280 245,270 255,270" class="arrow"/>
+<rect x="180" y="280" width="140" height="40" class="box"/><text x="250" y="305" class="text">验证用户名是否存在</text>
+<line x1="250" y1="320" x2="250" y2="360" class="line"/><polygon points="250,360 245,350 255,350" class="arrow"/>
+<path d="M 200 360 L 250 400 L 300 360 L 250 320 Z" class="box"/><text x="250" y="385" class="text">用户名已存在</text>
+<line x1="200" y1="360" x2="120" y2="360" class="line"/><line x1="120" y1="360" x2="120" y2="230" class="line"/><line x1="120" y1="230" x2="180" y2="230" class="line"/><polygon points="180,230 170,225 170,235" class="arrow"/><text x="100" y="295" class="text">是</text>
+<line x1="250" y1="400" x2="250" y2="430" class="line"/><polygon points="250,430 245,420 255,420" class="arrow"/><text x="270" y="420" class="text">否</text>
+<rect x="180" y="430" width="140" height="40" class="box"/><text x="250" y="455" class="text">密码MD5加密存储</text>
+<line x1="250" y1="470" x2="250" y2="500" class="line"/><polygon points="250,500 245,490 255,490" class="arrow"/>
+<rect x="180" y="500" width="140" height="40" class="box"/><text x="250" y="525" class="text">生成Token返回</text>
+<line x1="320" y1="520" x2="450" y2="520" class="line"/><line x1="450" y1="520" x2="450" y2="600" class="line"/><polygon points="450,600 445,590 455,590" class="arrow"/>
+<rect x="580" y="210" width="140" height="40" class="box"/><text x="650" y="235" class="text">输入用户名和密码</text>
+<line x1="650" y1="250" x2="650" y2="280" class="line"/><polygon points="650,280 645,270 655,270" class="arrow"/>
+<rect x="580" y="280" width="140" height="40" class="box"/><text x="650" y="305" class="text">密码MD5加密验证</text>
+<line x1="650" y1="320" x2="650" y2="360" class="line"/><polygon points="650,360 645,350 655,350" class="arrow"/>
+<path d="M 600 360 L 650 400 L 700 360 L 650 320 Z" class="box"/><text x="650" y="385" class="text">验证成功</text>
+<line x1="700" y1="360" x2="780" y2="360" class="line"/><line x1="780" y1="360" x2="780" y2="230" class="line"/><line x1="780" y1="230" x2="720" y2="230" class="line"/><polygon points="720,230 730,225 730,235" class="arrow"/><text x="800" y="295" class="text">否</text>
+<line x1="650" y1="400" x2="650" y2="430" class="line"/><polygon points="650,430 645,420 655,420" class="arrow"/><text x="670" y="420" class="text">是</text>
+<rect x="580" y="430" width="140" height="40" class="box"/><text x="650" y="455" class="text">返回用户信息和Token</text>
+<line x1="580" y1="450" x2="450" y2="450" class="line"/><line x1="450" y1="450" x2="450" y2="600" class="line"/><polygon points="450,600 445,590 455,590" class="arrow"/>
+<rect x="380" y="600" width="140" height="40" class="box"/><text x="450" y="625" class="text">前端存储Token跳转首页</text>
+<line x1="450" y1="640" x2="450" y2="670" class="line"/><polygon points="450,670 445,660 455,660" class="arrow"/>
+<rect x="380" y="670" width="140" height="40" rx="20" class="box"/><text x="450" y="695" class="text">结束</text>
+</svg>

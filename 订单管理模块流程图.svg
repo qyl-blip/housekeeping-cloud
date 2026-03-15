@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="750" viewBox="0 0 1000 750">
+<style>.box{fill:white;stroke:black;stroke-width:1.5}.text{font-family:SimHei,Microsoft YaHei,Arial,sans-serif;font-size:12px;text-anchor:middle}.title{font-size:14px;font-weight:bold}.line{stroke:black;stroke-width:1.5;fill:none}.arrow{fill:black}</style>
+<text x="500" y="30" class="text title">订单管理模块流程图</text>
+<rect x="430" y="50" width="140" height="40" rx="20" class="box"/><text x="500" y="75" class="text">开始</text>
+<line x1="500" y1="90" x2="500" y2="120" class="line"/><polygon points="500,120 495,110 505,110" class="arrow"/>
+<rect x="430" y="120" width="140" height="40" class="box"/><text x="500" y="145" class="text">用户选择服务</text>
+<line x1="500" y1="160" x2="500" y2="190" class="line"/><polygon points="500,190 495,180 505,180" class="arrow"/>
+<rect x="430" y="190" width="140" height="40" class="box"/><text x="500" y="215" class="text">点击立即下单</text>
+<line x1="500" y1="230" x2="500" y2="260" class="line"/><polygon points="500,260 495,250 505,250" class="arrow"/>
+<rect x="390" y="260" width="220" height="40" class="box"/><text x="500" y="285" class="text">填写订单信息(数量/地址/备注)</text>
+<line x1="500" y1="300" x2="500" y2="330" class="line"/><polygon points="500,330 495,320 505,320" class="arrow"/>
+<rect x="430" y="330" width="140" height="40" class="box"/><text x="500" y="355" class="text">提交订单</text>
+<line x1="500" y1="370" x2="500" y2="400" class="line"/><polygon points="500,400 495,390 505,390" class="arrow"/>
+<rect x="380" y="400" width="240" height="50" class="box"/><text x="500" y="415" class="text">后端创建订单</text><text x="500" y="430" class="text">生成订单号(时间戳)</text><text x="500" y="445" class="text">状态设为待支付</text>
+<line x1="500" y1="450" x2="500" y2="480" class="line"/><polygon points="500,480 495,470 505,470" class="arrow"/>
+<rect x="430" y="480" width="140" height="40" class="box"/><text x="500" y="505" class="text">跳转到支付页面</text>
+<line x1="500" y1="520" x2="500" y2="560" class="line"/><polygon points="500,560 495,550 505,550" class="arrow"/>
+<path d="M 450 560 L 500 600 L 550 560 L 500 520 Z" class="box"/><text x="500" y="585" class="text">用户支付</text>
+<line x1="550" y1="560" x2="720" y2="560" class="line"/><polygon points="720,560 710,555 710,565" class="arrow"/><text x="635" y="555" class="text">是</text>
+<rect x="650" y="540" width="140" height="40" class="box"/><text x="720" y="565" class="text">更新订单状态为已支付</text>
+<line x1="720" y1="580" x2="720" y2="610" class="line"/><polygon points="720,610 715,600 725,600" class="arrow"/>
+<rect x="650" y="610" width="140" height="40" class="box"/><text x="720" y="635" class="text">记录支付时间</text>
+<line x1="720" y1="650" x2="720" y2="680" class="line"/><polygon points="720,680 715,670 725,670" class="arrow"/>
+<rect x="650" y="680" width="140" height="40" rx="20" class="box"/><text x="720" y="705" class="text">结束</text>
+<line x1="450" y1="560" x2="280" y2="560" class="line"/><polygon points="280,560 290,555 290,565" class="arrow"/><text x="365" y="555" class="text">否(取消)</text>
+<rect x="210" y="540" width="140" height="40" class="box"/><text x="280" y="565" class="text">更新订单状态为已取消</text>
+<line x1="280" y1="580" x2="280" y2="610" class="line"/><polygon points="280,610 275,600 285,600" class="arrow"/>
+<rect x="210" y="610" width="140" height="40" rx="20" class="box"/><text x="280" y="635" class="text">结束</text>
+<text x="150" y="200" class="text title">管理员操作</text>
+<rect x="80" y="220" width="140" height="40" class="box"/><text x="150" y="245" class="text">查看订单列表</text>
+<line x1="150" y1="260" x2="150" y2="290" class="line"/><polygon points="150,290 145,280 155,280" class="arrow"/>
+<rect x="60" y="290" width="180" height="40" class="box"/><text x="150" y="315" class="text">关联查询(用户/服务信息)</text>
+<line x1="150" y1="330" x2="150" y2="360" class="line"/><polygon points="150,360 145,350 155,350" class="arrow"/>
+<rect x="80" y="360" width="140" height="40" class="box"/><text x="150" y="385" class="text">显示订单详情</text>
+<line x1="150" y1="400" x2="150" y2="430" class="line"/><polygon points="150,430 145,420 155,420" class="arrow"/>
+<rect x="80" y="430" width="140" height="40" class="box"/><text x="150" y="455" class="text">更新订单状态</text>
+<line x1="150" y1="470" x2="150" y2="500" class="line"/><polygon points="150,500 145,490 155,490" class="arrow"/>
+<rect x="80" y="500" width="140" height="40" class="box"/><text x="150" y="525" class="text">删除订单</text>
+</svg>

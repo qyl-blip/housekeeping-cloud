@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -24,59 +25,93 @@ public class LocalService {
     private UserClient userClient;
 
     public List<Thing> getServicesByCity(String city) {
-        // 1. 定义缓存 Key，比如 "local:service:北京"
-        String cacheKey = "local:service:v2:" + city;
-
-        // 2. 先查 Redis 缓存
-        if (redisTemplate.hasKey(cacheKey)) {
-            System.out.println(">>> 命中缓存，直接返回 Redis 数据");
-            return (List<Thing>) redisTemplate.opsForValue().get(cacheKey);
-        }
-
-        // 3. 缓存没有，查数据库
-        System.out.println(">>> 缓存未命中，查询数据库...");
+        // 直接查数据库，不使用缓存
+        System.out.println(">>> 直接查询数据库，city=" + city);
+        
         QueryWrapper<Thing> query = new QueryWrapper<>();
-        query.eq("city", city); // WHERE city = '北京'
+        query.eq("city", city);
         List<Thing> list = thingMapper.selectList(query);
-
-        // 4. 写入 Redis，设置 10 分钟过期（模拟毕设的高性能优化）
-        if (list != null && !list.isEmpty()) {
-            redisTemplate.opsForValue().set(cacheKey, list, 10, TimeUnit.MINUTES);
-        }
-
-        // 👇 模拟微服务调用 (对应论文 5.1)
-        try {
-            System.out.println(">>> 正在通过 Feign 调用旧服务(housekeeping-api)...");
-            String result = userClient.getClassificationList();
-            System.out.println(">>> Feign 调用成功！旧服务返回数据长度：" + (result != null ? result.length() : 0));
-        } catch (Exception e) {
-            System.err.println(">>> Feign 调用失败 (不影响主流程): " + e.getMessage());
-        }
-
-
+        
+        System.out.println(">>> 查询结果：" + (list != null ? list.size() : 0) + " 条数据");
+        
         return list;
     }
+    
     public List<Thing> getServicesByCityAndType(String city, Long classificationId) {
-        // 1. 缓存 Key 也要加上分类 ID，防止数据混淆
-        String cacheKey = "local:service:v2:" + city + ":" + (classificationId == null ? "all" : classificationId);
-
-        if (redisTemplate.hasKey(cacheKey)) {
-            return (List<Thing>) redisTemplate.opsForValue().get(cacheKey);
-        }
-
-        // 2. 数据库查询增加分类条件
+        // 直接查数据库，不使用缓存
+        System.out.println(">>> 直接查询数据库，city=" + city + ", classificationId=" + classificationId);
+        
         QueryWrapper<Thing> query = new QueryWrapper<>();
         query.eq("city", city);
 
-        // 如果传了分类ID，就加一个 WHERE classification_id = xxx
         if (classificationId != null) {
             query.eq("classification_id", classificationId);
         }
 
         List<Thing> list = thingMapper.selectList(query);
+        System.out.println(">>> 查询结果：" + (list != null ? list.size() : 0) + " 条数据");
+        
         if (list != null && !list.isEmpty()) {
-            redisTemplate.opsForValue().set(cacheKey, list, 10, TimeUnit.MINUTES);
+            for (Thing thing : list) {
+                System.out.println(">>> 服务详情：id=" + thing.getId() + 
+                    ", title=" + thing.getTitle() + 
+                    ", city=" + thing.getCity() + 
+                    ", classificationId=" + thing.getClassificationId());
+            }
         }
+        
         return list;
+    }
+
+    /**
+     * 调试方法：获取所有服务数据
+     */
+    public List<Thing> getAllServices() {
+        System.out.println(">>> [DEBUG] 查询所有服务数据");
+        List<Thing> list = thingMapper.selectList(null);
+        System.out.println(">>> [DEBUG] 数据库中总共有 " + (list != null ? list.size() : 0) + " 条数据");
+        
+        if (list != null && !list.isEmpty()) {
+            for (Thing thing : list) {
+                System.out.println(">>> [DEBUG] 服务：id=" + thing.getId() + 
+                    ", title=" + thing.getTitle() + 
+                    ", city=" + thing.getCity() + 
+                    ", location=" + thing.getLocation() + 
+                    ", classificationId=" + thing.getClassificationId());
+            }
+        }
+        
+        return list;
+    }
+
+    /**
+     * 清除缓存方法
+     */
+    public String clearCache(String city) {
+        if (city != null) {
+            // 清除指定城市的缓存
+            String pattern = "local:service:v2:" + city + "*";
+            System.out.println(">>> [DEBUG] 清除缓存模式：" + pattern);
+            
+            // 获取所有匹配的key
+            Set<String> keys = redisTemplate.keys(pattern);
+            if (keys != null && !keys.isEmpty()) {
+                redisTemplate.delete(keys);
+                System.out.println(">>> [DEBUG] 已清除 " + keys.size() + " 个缓存key");
+                return "已清除 " + city + " 相关的 " + keys.size() + " 个缓存";
+            } else {
+                return "未找到 " + city + " 相关的缓存";
+            }
+        } else {
+            // 清除所有本地服务缓存
+            Set<String> keys = redisTemplate.keys("local:service:v2:*");
+            if (keys != null && !keys.isEmpty()) {
+                redisTemplate.delete(keys);
+                System.out.println(">>> [DEBUG] 已清除所有本地服务缓存，共 " + keys.size() + " 个");
+                return "已清除所有本地服务缓存，共 " + keys.size() + " 个";
+            } else {
+                return "未找到任何本地服务缓存";
+            }
+        }
     }
 }

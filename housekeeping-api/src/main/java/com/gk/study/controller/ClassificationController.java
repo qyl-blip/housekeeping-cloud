@@ -18,6 +18,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 服务分类模块接口。
+ *
+ * <p>分类用于给服务（Thing）做归类展示（例如：保洁、保姆、家电清洗等）。</p>
+ *
+ * <p>权限说明：</p>
+ * <ul>
+ *   <li>查询列表：公开接口</li>
+ *   <li>新增/删除/更新：管理员 {@link AccessLevel#ADMIN}</li>
+ * </ul>
+ */
 @RestController
 @RequestMapping("/classification")
 public class ClassificationController {
@@ -27,6 +38,12 @@ public class ClassificationController {
     @Autowired
     ClassificationService service;
 
+    /**
+     * 查询分类列表。
+     *
+     * @param page     页码（可选）
+     * @param pageSize 每页条数（可选）
+     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public APIResponse list(Integer page, Integer pageSize){
         List<Classification> list =  service.getClassificationList();
@@ -36,6 +53,11 @@ public class ClassificationController {
         return new APIResponse(ResponeCode.SUCCESS, "获取成功", list);
     }
 
+    /**
+     * 新增分类（管理员）。
+     *
+     * @param classification 分类信息
+     */
     @Access(level = AccessLevel.ADMIN)
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @Transactional
@@ -44,10 +66,14 @@ public class ClassificationController {
         return new APIResponse(ResponeCode.SUCCESS, "操作成功");
     }
 
+    /**
+     * 删除分类（管理员，支持批量）。
+     *
+     * @param ids 分类ID，英文逗号分隔
+     */
     @Access(level = AccessLevel.ADMIN)
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public APIResponse delete(String ids){
-        System.out.println("ids===" + ids);
         String[] arr = ids.split(",");
         for (String id : arr) {
             service.deleteClassification(id);
@@ -55,6 +81,11 @@ public class ClassificationController {
         return new APIResponse(ResponeCode.SUCCESS, "操作成功");
     }
 
+    /**
+     * 更新分类（管理员）。
+     *
+     * @param classification 分类信息
+     */
     @Access(level = AccessLevel.ADMIN)
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @Transactional

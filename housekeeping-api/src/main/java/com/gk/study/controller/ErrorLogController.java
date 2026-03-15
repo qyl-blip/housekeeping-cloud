@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * 错误日志（ErrorLog）接口。
+ *
+ * <p>用于后台查看系统运行过程中的异常/错误记录，便于排查问题。
+ * 目前主要提供“列表查询”能力，支持可选分页（内存分页）。</p>
+ */
 @RestController
 @RequestMapping("/errorLog")
 public class ErrorLogController {
@@ -23,6 +29,11 @@ public class ErrorLogController {
     @Autowired
     ErrorLogService service;
 
+    /**
+     * 查询错误日志列表。
+     *
+     * <p>可选分页参数：page/pageSize 同时传入时，对查询结果进行内存分页。</p>
+     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public APIResponse list(Integer page, Integer pageSize){
         List<ErrorLog> list =  service.getErrorLogList();
