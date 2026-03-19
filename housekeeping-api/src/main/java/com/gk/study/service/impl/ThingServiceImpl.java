@@ -3,15 +3,19 @@ package com.gk.study.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.gk.study.entity.RecommendConfig;
 import com.gk.study.entity.Thing;
 import com.gk.study.entity.ThingTag;
 import com.gk.study.mapper.ThingMapper;
 import com.gk.study.mapper.ThingTagMapper;
+import com.gk.study.service.RecommendConfigService;
 import com.gk.study.service.ThingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +40,10 @@ public class ThingServiceImpl extends ServiceImpl<ThingMapper, Thing> implements
     @Autowired
     ThingTagMapper thingTagMapper;
 
+    @Lazy
+    @Autowired
+    RecommendConfigService recommendConfigService;
+
     /**
      * 服务列表查询。
      *
@@ -54,16 +62,13 @@ public class ThingServiceImpl extends ServiceImpl<ThingMapper, Thing> implements
         // 1) 关键词过滤（title like）
         queryWrapper.like(StringUtils.isNotBlank(keyword), "title", keyword);
 
-        // 2) 排序（recent/hot/recommend）
-        if (StringUtils.isNotBlank(sort)) {
-            if (sort.equals("recent")) {
-                queryWrapper.orderBy(true, false, "create_time");
-            } else if (sort.equals("hot") || sort.equals("recommend")) {
-                queryWrapper.orderBy(true, false, "pv");
-            }
-        } else {
+        // 2) 排序：recent/hot 在 SQL 层排序，其余（含 recommend 和默认）在内存中按权重综合分排序
+        if ("recent".equals(sort)) {
             queryWrapper.orderBy(true, false, "create_time");
+        } else if ("hot".equals(sort)) {
+            queryWrapper.orderBy(true, false, "pv");
         }
+        // 其他情况不加 SQL 排序，后面统一走权重内存排序
 
         // 3) 分类过滤
         if (StringUtils.isNotBlank(c) && !c.equals("-1")) {
@@ -98,6 +103,23 @@ public class ThingServiceImpl extends ServiceImpl<ThingMapper, Thing> implements
             List<ThingTag> thingTags = thingTagMapper.selectList(thingTagQueryWrapper);
             List<Long> tags = thingTags.stream().map(ThingTag::getTagId).collect(Collectors.toList());
             thing.setTags(tags);
+        }
+
+        // 7) 非 recent/hot 模式（含 recommend 和默认无 sort）：按权重综合分排序
+        if (!"recent".equals(sort) && !"hot".equals(sort)) {
+            RecommendConfig config = recommendConfigService.getActiveConfig();
+            double pvW = config.getPvWeight() != null ? config.getPvWeight() : 0.4;
+            double wishW = config.getWishWeight() != null ? config.getWishWeight() : 0.2;
+            double collectW = config.getCollectWeight() != null ? config.getCollectWeight() : 0.3;
+            double scoreW = config.getScoreWeight() != null ? config.getScoreWeight() : 0.1;
+
+            things.sort(Comparator.comparingDouble((Thing t) -> {
+                double pv = t.getPv() != null ? Double.parseDouble(t.getPv()) : 0;
+                double wish = t.getWishCount() != null ? Double.parseDouble(t.getWishCount()) : 0;
+                double collect = t.getCollectCount() != null ? Double.parseDouble(t.getCollectCount()) : 0;
+                double score = t.getScore() != null ? Double.parseDouble(t.getScore()) : 0;
+                return pv * pvW + wish * wishW + collect * collectW + score * scoreW;
+            }).reversed());
         }
 
         return things;
